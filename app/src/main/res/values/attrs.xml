@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Other values-->
+    <attr name="backgroundColor" format="reference" />
+    <attr name="buttonColor" format="reference" />
+    <attr name="buttonTextColor" format="reference" />
+    <attr name="negativeColor" format="reference" />
+    <attr name="toolbarColor" format="reference" />
+    <attr name="itemBackgroundColor" format="reference" />
+    <attr name="textColor" format="reference" />
+    <attr name="iconColor" format="reference" />
+    <attr name="lineColor" format="reference" />
+
+    <attr name="title" format="string" />
+    <attr name="text" format="string" />
+    <attr name="description" format="string" />
+
+</resources>

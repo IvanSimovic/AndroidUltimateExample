@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/activitiesFragment">
+
+    <fragment
+        android:id="@+id/activitiesFragment"
+        android:name="com.ivan.androidultimateexample.ui.main.activities.ActivitiesFragment"
+        android:label="ActivitiesFragment"
+        tools:layout="@layout/activities_fragment">
+
+        <action
+            android:id="@+id/action_activities_to_activity_create"
+            app:destination="@id/activityCreateFragment" />
+
+        <action
+            android:id="@+id/action_activities_to_activity_details"
+            app:destination="@id/activityDetailsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/activityCreateFragment"
+        android:name="com.ivan.androidultimateexample.ui.main.activities.ActivityCreateFragment"
+        android:label="ActivityCreateFragment"
+        tools:layout="@layout/activity_create_fragment" />
+
+    <fragment
+        android:id="@+id/activityEditFragment"
+        android:name="com.ivan.androidultimateexample.ui.main.activities.ActivityEditFragment"
+        android:label="ActivityEditFragment"
+        tools:layout="@layout/activity_edit_fragment">
+
+        <argument
+            android:name="activityId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/activityDetailsFragment"
+        android:name="com.ivan.androidultimateexample.ui.main.activities.ActivityDetailsFragment"
+        android:label="ActivityDetailsFragment"
+        tools:layout="@layout/activity_details_fragment">
+
+        <action
+            android:id="@+id/action_activity_details_to_activity_edit"
+            app:destination="@id/activityEditFragment" />
+
+        <argument
+            android:name="activityId"
+            app:argType="string" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.ivan.androidultimateexample.ui.main.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

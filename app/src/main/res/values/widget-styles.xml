@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="PrimaryButton">
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:textColor">?attr/buttonTextColor</item>
+        <item name="android:background">?attr/buttonColor</item>
+    </style>
+
+    <style name="NegativeButton">
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:textColor">?attr/buttonTextColor</item>
+        <item name="android:background">?attr/negativeColor</item>
+    </style>
+
+    <style name="Navigation">
+        <item name="android:background">?attr/itemBackgroundColor</item>
+        <item name="android:elevation">3dp</item>
+    </style>
+
+    <style name="Background">
+        <item name="android:background">?attr/backgroundColor</item>
+    </style>
+
+    <style name="Item">
+        <item name="android:background">?attr/itemBackgroundColor</item>
+    </style>
+
+    <style name="Toolbar">
+        <item name="android:background">?attr/toolbarColor</item>
+    </style>
+
+    <style name="FormEditText">
+        <item name="android:textColor">?attr/textColor</item>
+        <item name="android:backgroundTint">?attr/lineColor</item>
+        <item name="android:textColorHint">?attr/lineColor</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="StandardText">
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="TitleText">
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textColor">?attr/textColor</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="InteractionText">
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="CharacterText">
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="SmallText">
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="SmallerText">
+        <item name="android:textSize">@dimen/text_12</item>
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+</resources>

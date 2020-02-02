@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">UltimateSetup</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="join_activity">Join Activity</string>
+    <string name="cancel_attendance">Cancel attendance</string>
+    <string name="manage_event">Manage Event</string>
+
+</resources>
