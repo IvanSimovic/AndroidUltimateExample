@@ -6,11 +6,11 @@ import com.google.gson.annotations.SerializedName
  * @author Ensar Sarajčić <ensar.sarajcic@klika.ba>.
  */
 class OAuth2RefreshTokenRequest(
-    @field:SerializedName("refresh_token")
-    val refreshToken: String,
-    clientId: String,
-    clientSecret: String
-) : OAuth2GrantRequest(GRANT_TYPE, clientId, clientSecret) {
+    @field:SerializedName("Email")
+    val email: String,
+    @field:SerializedName("RefreshToken")
+    val refreshToken: String
+) : OAuth2GrantRequest() {
     companion object {
         private const val GRANT_TYPE = "refresh_token"
     }

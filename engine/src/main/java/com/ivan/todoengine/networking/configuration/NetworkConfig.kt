@@ -1,6 +1,7 @@
 package com.ivan.todoengine.networking.configuration
 
 import com.ivan.todoengine.BuildConfig
+import okhttp3.OkHttpClient
 import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton

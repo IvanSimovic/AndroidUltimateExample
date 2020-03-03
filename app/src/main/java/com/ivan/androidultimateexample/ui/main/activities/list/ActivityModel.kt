@@ -1,6 +1,6 @@
 package com.ivan.androidultimateexample.ui.main.activities.list
 
-import com.ivan.todoengine.logic.task.Activity
+import com.ivan.todoengine.logic.activity.Activity
 import org.threeten.bp.LocalDateTime
 
 class ActivityModel(

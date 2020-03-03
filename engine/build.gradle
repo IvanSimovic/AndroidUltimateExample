@@ -23,10 +23,10 @@ android {
     buildTypes {
 
         debug {
-            buildConfigField "String", "BASE_URL", '"http://10.10.1.59:5000/api/"'
+            buildConfigField "String", "BASE_URL", '"http://192.168.0.19:5000/api/"'
         }
         release {
-            buildConfigField "String", "BASE_URL", '"http://10.10.1.59:5000/api/"'
+            buildConfigField "String", "BASE_URL", '"http://192.168.0.19:5000/api/"'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -71,11 +71,11 @@ dependencies {
     implementation "androidx.room:room-ktx:$roomVersion"
 
     // Networking
-    implementation "com.squareup.okhttp3:okhttp:$okhttp3Version"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3Version"
-    implementation "com.squareup.retrofit2:retrofit:$retrofit2Version"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit2Version"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit2Version"
+    api "com.squareup.okhttp3:okhttp:$okhttp3Version"
+    api "com.squareup.okhttp3:logging-interceptor:$okhttp3Version"
+    api "com.squareup.retrofit2:retrofit:$retrofit2Version"
+    api "com.squareup.retrofit2:converter-gson:$retrofit2Version"
+    api "com.squareup.retrofit2:adapter-rxjava2:$retrofit2Version"
 
     implementation "com.google.code.gson:gson:$gsonVersion"
 

@@ -1,6 +1,5 @@
 package com.ivan.todoengine.networking.oauth2.request
 
-import com.ivan.todoengine.networking.ClientConfig
 import javax.inject.Inject
 
 /**
@@ -8,25 +7,22 @@ import javax.inject.Inject
  * @author Ensar Sarajčić <ensar.sarajcic@klika.ba>.
  */
 class OAuth2RequestFactory
-@Inject constructor(private val clientConfig: ClientConfig) {
+@Inject constructor() {
 
     fun makeCreateTokenRequest(
-        username: String,
+        email: String,
         password: String
     ): OAuth2CreateTokenRequest {
         return OAuth2CreateTokenRequest(
-            username,
-            password,
-            clientConfig.clientId,
-            clientConfig.clientSecret
+            email,
+            password
         )
     }
 
-    fun makeRefreshTokenRequest(refreshToken: String): OAuth2RefreshTokenRequest {
+    fun makeRefreshTokenRequest(email: String, refreshToken: String): OAuth2RefreshTokenRequest {
         return OAuth2RefreshTokenRequest(
-            refreshToken,
-            clientConfig.clientId,
-            clientConfig.clientSecret
+            email,
+            refreshToken
         )
     }
 }

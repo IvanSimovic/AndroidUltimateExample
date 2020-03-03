@@ -28,18 +28,18 @@ class OAuth2Interceptor
             return chain.proceed(request)
         }
 
-        var oAuth2Token = oAuth2TokenStorage.readToken()
+        val oAuth2Token = oAuth2TokenStorage.readToken()
         // If there is a token, add it as header, otherwise proceed
         // because there may be some calls which don't require auth
         if (oAuth2Token != null) {
             // has token expired?
-            if (oAuth2Token.expired()) {
+            /*if (oAuth2Token.expired()) {
                 oAuth2Token = oAuth2TokenRefresher.refreshToken()
-            }
+            }*/
 
             request = request.newBuilder()
                 .removeHeader(AUTH_HEADER)
-                .addHeader(AUTH_HEADER, "Bearer " + oAuth2Token.accessToken)
+                .addHeader(AUTH_HEADER, "Bearer " + oAuth2Token.token)
                 .build()
         }
 

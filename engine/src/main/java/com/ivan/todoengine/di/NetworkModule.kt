@@ -22,7 +22,7 @@ import javax.inject.Singleton
 abstract class NetworkModule {
     @Module
     companion object {
-       /* @Provides
+        @Provides
         @Singleton
         @Authenticated(false)
         @JvmStatic
@@ -33,9 +33,7 @@ abstract class NetworkModule {
         @Provides
         @Singleton
         @JvmStatic
-        fun provideDispatcher(): Dispatcher {
-            return Dispatcher()
-        }
+        fun provideDispatcher(): Dispatcher = Dispatcher()
 
         @Provides
         @Singleton
@@ -100,17 +98,17 @@ abstract class NetworkModule {
                 .readTimeout(networkConfig.readTimeoutInMs, TimeUnit.MILLISECONDS)
                 .writeTimeout(networkConfig.writeTimeoutInMs, TimeUnit.MILLISECONDS)
                 .build()
-        }*/
+        }
 
         @Provides
         @Singleton
         @JvmStatic
         @Authenticated(true)
         fun provideAuthenticatedRetrofitApiFactory(
-            //@Authenticated(true) okHttpClient: OkHttpClient,
+            @Authenticated(true) okHttpClient: OkHttpClient,
             networkConfig: NetworkConfig
         ): IApiFactory = RetrofitApiFactory(
-            OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }).build(),
+            okHttpClient,
             networkConfig
         )
 
@@ -119,12 +117,13 @@ abstract class NetworkModule {
         @JvmStatic
         @Authenticated(false)
         fun provideUnauthenticatedRetrofitApiFactory(
-            //@Authenticated(false) okHttpClient: OkHttpClient,
+            @Authenticated(false) okHttpClient: OkHttpClient,
             networkConfig: NetworkConfig
         ): IApiFactory = RetrofitApiFactory(
-            OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }).build(),
+            okHttpClient,
             networkConfig
         )
+
     }
 
     @Multibinds
@@ -134,10 +133,11 @@ abstract class NetworkModule {
     @Binds
     @Singleton
     abstract fun provideDefaultRetrofitApiFactory(@Authenticated(true) apiFactory: IApiFactory): IApiFactory
-/*
+
     @Binds
     @Singleton
-    abstract fun provideDefaultOkHttpClient(@Authenticated(true) okHttpClient: OkHttpClient): OkHttpClient*/
+    abstract fun provideDefaultOkHttpClient(@Authenticated(true) okHttpClient: OkHttpClient): OkHttpClient
+
 
     @Binds
     @Singleton

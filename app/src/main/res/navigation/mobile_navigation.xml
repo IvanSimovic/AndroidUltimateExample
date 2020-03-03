@@ -57,6 +57,18 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.ivan.androidultimateexample.ui.main.settings.SettingsFragment"
-        android:label="@string/title_settings"
+        android:label="SettingsFragment"
         tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.ivan.androidultimateexample.ui.main.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/login_fragment" >
+
+        <action
+            android:id="@+id/action_login_to_activities"
+            app:destination="@id/activitiesFragment" />
+
+    </fragment>
 </navigation>

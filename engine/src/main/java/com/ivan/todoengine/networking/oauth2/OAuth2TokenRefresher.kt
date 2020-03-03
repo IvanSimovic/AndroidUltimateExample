@@ -18,24 +18,24 @@ class OAuth2TokenRefresher
 ) {
 
     fun refreshToken(): OAuth2Token {
-        var newToken: OAuth2Token?
-        synchronized(lock) {
-            val oldToken = tokenStorage.readToken()
-            return if (oldToken != null && oldToken.expired()) {
-                newToken = oAuth2TokenApi.get().refreshToken(
-                    oAuth2RequestFactory.makeRefreshTokenRequest(oldToken.refreshToken)
-                ).body()
-                // Response body should not be null if it was successful
-                assert(newToken != null)
-                tokenStorage.saveToken(newToken!!)
-                newToken!!
-            } else {
-                if (oldToken == null) {
-                    // TODO custom exception
-                    throw NullPointerException("No token")
-                }
-                oldToken
+        val oldToken = tokenStorage.readToken()
+        return if (oldToken != null) {
+            val newToken = oAuth2TokenApi.get().refreshToken(
+                oAuth2RequestFactory.makeRefreshTokenRequest(
+                    oldToken.email,
+                    oldToken.refreshToken
+                )
+            ).execute().body()
+            // Response body should not be null if it was successful
+            if(newToken == null)
+                throw NullPointerException("Failed to refresh token")
+
+            synchronized(lock) {
+                tokenStorage.saveToken(newToken)
             }
+            newToken
+        } else {
+            throw NullPointerException("No token")
         }
     }
 

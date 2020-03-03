@@ -1,3 +1,3 @@
 package com.ivan.todoengine.networking.session
 
-data class Credentials(val username: String, val password: String)
+data class Credentials(val email: String, val password: String)

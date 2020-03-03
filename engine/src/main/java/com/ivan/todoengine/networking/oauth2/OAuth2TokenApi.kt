@@ -2,6 +2,7 @@ package com.ivan.todoengine.networking.oauth2
 
 import com.ivan.todoengine.networking.oauth2.request.OAuth2CreateTokenRequest
 import com.ivan.todoengine.networking.oauth2.request.OAuth2RefreshTokenRequest
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -12,9 +13,9 @@ import retrofit2.http.POST
  */
 interface OAuth2TokenApi {
 
-    @POST("oauth/token")
-    fun createToken(@Body createTokenRequest: OAuth2CreateTokenRequest): Response<OAuth2Token>
+    @POST("oauth/login")
+    suspend fun createToken(@Body createTokenRequest: OAuth2CreateTokenRequest): Response<OAuth2Token>
 
-    @POST("oauth/token")
-    fun refreshToken(@Body refreshTokenRequest: OAuth2RefreshTokenRequest): Response<OAuth2Token>
+    @POST("oauth/refreshtoken")
+    fun refreshToken(@Body refreshTokenRequest: OAuth2RefreshTokenRequest): Call<OAuth2Token>
 }

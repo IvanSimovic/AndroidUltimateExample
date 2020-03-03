@@ -7,11 +7,11 @@ import com.ivan.todoengine.networking.oauth2.request.OAuth2RequestFactory
 import javax.inject.Inject
 
 interface SessionRepository {
-    fun logIn(credentials: Credentials)
+    suspend fun logIn(credentials: Credentials)
 
-    fun logOut()
+    suspend fun logOut()
 
-    fun hasSession(): Boolean
+    suspend fun hasSession(): Boolean
 }
 
 class SessionRepositoryImpl
@@ -20,20 +20,20 @@ class SessionRepositoryImpl
     private val oAuth2TokenStorage: OAuth2TokenStorage,
     private val oAuth2RequestFactory: OAuth2RequestFactory
 ) : SessionRepository {
-    override fun logIn(credentials: Credentials) {
+    override suspend fun logIn(credentials: Credentials) {
         val token = oAuth2TokenApi.createToken(
             oAuth2RequestFactory.makeCreateTokenRequest(
-                credentials.username,
+                credentials.email,
                 credentials.password
             )
         ).body()!!
         oAuth2TokenStorage.saveToken(token)
     }
 
-    override fun logOut() {
+    override suspend fun logOut() {
         oAuth2TokenStorage.clearToken()
     }
 
-    override fun hasSession(): Boolean =
+    override suspend fun hasSession(): Boolean =
         oAuth2TokenStorage.readToken() != null
 }

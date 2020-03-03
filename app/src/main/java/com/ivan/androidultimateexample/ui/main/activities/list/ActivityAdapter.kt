@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ivan.androidultimateexample.databinding.ActivityItemBinding
-import com.ivan.todoengine.logic.task.Activity
+import com.ivan.todoengine.logic.activity.Activity
 
 class ActivityAdapter : RecyclerView.Adapter<ActivityViewHolder>(),
     ActivityModel.RowClickListener {

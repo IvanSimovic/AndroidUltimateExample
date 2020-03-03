@@ -18,6 +18,8 @@ import com.ivan.androidultimateexample.ui.base.view.BaseBoundActivity
 import com.ivan.androidultimateexample.ui.main.settings.SettingsFragment
 import com.ivan.androidultimateexample.ui.main.settings.SettingsModule
 import com.ivan.androidultimateexample.ui.main.activities.*
+import com.ivan.androidultimateexample.ui.main.login.LoginFragment
+import com.ivan.androidultimateexample.ui.main.login.LoginModule
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -128,5 +130,9 @@ abstract class MainFragmentBuilder {
     @FragmentScope
     @ContributesAndroidInjector(modules = [SettingsModule::class])
     abstract fun provideSettingsFragment(): SettingsFragment
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = [LoginModule::class])
+    abstract fun provideLoginFragment(): LoginFragment
 }
 

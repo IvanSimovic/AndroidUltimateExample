@@ -4,8 +4,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.OnLifecycleEvent
 import com.ivan.androidultimateexample.ui.base.viewmodel.BaseViewModel
 import com.ivan.androidultimateexample.ui.util.asMutableLiveData
-import com.ivan.todoengine.logic.task.Activity
-import com.ivan.todoengine.logic.task.ActivityLogic
+import com.ivan.todoengine.logic.activity.Activity
+import com.ivan.todoengine.logic.activity.ActivityLogic
 import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 

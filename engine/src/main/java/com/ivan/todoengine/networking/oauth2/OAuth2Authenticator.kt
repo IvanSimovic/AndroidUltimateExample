@@ -38,7 +38,7 @@ class OAuth2Authenticator
             Log.w(TAG, "Request was missing auth header! Route: " + route.toString())
             val oAuth2Token = oAuth2TokenStorage.readToken()
             return if (oAuth2Token != null) {
-                retryWithToken(response, oAuth2Token.accessToken)
+                retryWithToken(response, oAuth2Token.token)
             } else {
                 // No token, can't attempt auth
                 null
@@ -62,25 +62,17 @@ class OAuth2Authenticator
             return null
         }
 
-        if (!TextUtils.equals(sentToken, storedToken.accessToken)) {
+        if (!TextUtils.equals(sentToken, storedToken.token)) {
             // Sent token is not the same as stored one
             // Retry with stored one
-            return retryWithToken(response, storedToken.accessToken)
-        }
-
-        if (!storedToken.expired()) {
-            // Stored token is the same as sent one
-            // But it hasn't expired
-            // Seems like a bad token - abort
-            Log.w(TAG, "Bad token stored")
-            return null
+            return retryWithToken(response, storedToken.token)
         }
 
         // refresh token
         val newToken: OAuth2Token?
         newToken = oAuth2TokenRefresher.refreshToken()
         // retry with new token
-        return retryWithToken(response, newToken.accessToken)
+        return retryWithToken(response, newToken.token)
     }
 
     private fun retryWithToken(response: Response, accessToken: String): Request {

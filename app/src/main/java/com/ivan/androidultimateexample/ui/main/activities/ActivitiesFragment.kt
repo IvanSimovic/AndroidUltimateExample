@@ -12,7 +12,7 @@ import com.ivan.androidultimateexample.ui.base.view.MarginItemDecoration
 import com.ivan.androidultimateexample.ui.main.activities.list.ActivityAdapter
 import com.ivan.androidultimateexample.ui.main.activity.MainActivity
 import com.ivan.androidultimateexample.ui.main.activities.list.ActivityModel
-import com.ivan.todoengine.logic.task.Activity
+import com.ivan.todoengine.logic.activity.Activity
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

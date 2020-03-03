@@ -1,6 +1,7 @@
 package com.ivan.todoengine.networking.oauth2
 
 import com.google.gson.annotations.SerializedName
+import com.ivan.todoengine.networking.RefreshableAuthToken
 import com.ivan.todoengine.networking.RefreshableSetTimeExpirableAuthToken
 
 /**
@@ -9,27 +10,22 @@ import com.ivan.todoengine.networking.RefreshableSetTimeExpirableAuthToken
  * @author Ensar Sarajčić <ensar.sarajcic@klika.ba>.
  */
 class OAuth2Token(
-    @field:SerializedName("expires_in")
-    val expirationPeriod: Long,
-    @field:SerializedName("created_at")
-    val createdAt: Long,
-    @field:SerializedName("access_token")
-    val accessToken: String,
-    @field:SerializedName("refresh_token")
+    @field:SerializedName("email")
+    val email: String,
+    @field:SerializedName("token")
+    val token: String,
+    @field:SerializedName("refreshToken")
     val refreshToken: String
-) : RefreshableSetTimeExpirableAuthToken {
+) : RefreshableAuthToken {
 
-    override val stringValue: String = accessToken
+    override val stringValue: String = token
 
     override val refreshTokenStringValue: String = refreshToken
 
-    override val expirationTimestamp: Long = createdAt + expirationPeriod
-
     override fun toString(): String {
         return "OAuth2Token{" +
-                "expirationPeriod=" + expirationPeriod +
-                ", createdAt=" + createdAt +
-                ", accessToken='" + accessToken + '\''.toString() +
+                ", email='" + email + '\''.toString() +
+                ", token='" + token + '\''.toString() +
                 ", refreshToken='" + refreshToken + '\''.toString() +
                 '}'.toString()
     }

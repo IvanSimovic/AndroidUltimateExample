@@ -34,6 +34,8 @@
         <item name="android:textColor">?attr/textColor</item>
         <item name="android:backgroundTint">?attr/lineColor</item>
         <item name="android:textColorHint">?attr/lineColor</item>
+        <item name="android:inputType">text</item>
+        <item name="android:gravity">center</item>
     </style>
 
 
