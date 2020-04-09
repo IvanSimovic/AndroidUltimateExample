@@ -13,7 +13,7 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 import kotlinx.android.synthetic.main.login_fragment.*
 
-class LoginFragment: BaseBoundFragment<LoginViewModel>() {
+class LoginFragment : BaseBoundFragment<LoginViewModel>() {
 
     override val layoutRId: Int
         get() = R.layout.login_fragment

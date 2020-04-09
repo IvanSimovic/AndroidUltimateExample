@@ -19,7 +19,7 @@
     </style>
 
     <style name="Background">
-        <item name="android:background">?attr/backgroundColor</item>
+        <item name="android:background">?attr/myBackgroundColor</item>
     </style>
 
     <style name="Item">

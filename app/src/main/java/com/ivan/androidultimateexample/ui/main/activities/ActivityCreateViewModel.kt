@@ -5,7 +5,6 @@ import com.ivan.androidultimateexample.ui.util.SingleLiveEvent
 import com.ivan.androidultimateexample.ui.util.asMutableLiveData
 import com.ivan.todoengine.logic.activity.ActivityLogic
 import com.ivan.todoengine.logic.activity.insertTask
-import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 class ActivityCreateViewModel
@@ -17,11 +16,9 @@ class ActivityCreateViewModel
 
     fun createActivity() {
         run {
-            runBlocking {
-                activity.value?.let {
-                    activityLogic.insertActivity(it)
-                    navigationEvent.postValue(NavigationEvent.BACK)
-                }
+            activity.value?.let {
+                activityLogic.insertActivity(it)
+                navigationEvent.postValue(NavigationEvent.BACK)
             }
         }
     }
@@ -31,5 +28,4 @@ class ActivityCreateViewModel
     enum class NavigationEvent {
         BACK
     }
-
 }
