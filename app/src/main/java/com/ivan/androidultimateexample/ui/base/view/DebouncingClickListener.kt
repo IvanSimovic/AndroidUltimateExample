@@ -1,6 +1,5 @@
 package com.ivan.androidultimateexample.ui.base.view
 
-
 import android.view.View
 
 fun View.setDebouncingOnClickListener(onClick: () -> Unit) {

@@ -23,10 +23,10 @@ android {
     buildTypes {
 
         debug {
-            buildConfigField "String", "BASE_URL", '"http://192.168.0.19:5000/api/"'
+            buildConfigField "String", "BASE_URL", '"http://192.168.2.3:5000/api/"'
         }
         release {
-            buildConfigField "String", "BASE_URL", '"http://192.168.0.19:5000/api/"'
+            buildConfigField "String", "BASE_URL", '"http://192.168.2.3:5000/api/"'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -63,7 +63,7 @@ dependencies {
     implementation "com.google.dagger:dagger:$daggerVersion"
     implementation "com.google.dagger:dagger-android:$daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-rc01'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.0-alpha01'
 
     // Local database
     api "androidx.room:room-runtime:$roomVersion"

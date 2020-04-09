@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import com.ivan.androidultimateexample.ui.base.viewmodel.BaseViewModel
 import com.ivan.todoengine.networking.session.Credentials
 import com.ivan.todoengine.networking.session.SessionRepository
-import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 class LoginViewModel
@@ -19,11 +18,8 @@ class LoginViewModel
 
     fun login() {
         run {
-            runBlocking {
-                sessionRepository.logIn(Credentials(email, password))
-                onLogin.postValue(Unit)
-            }
+            sessionRepository.logIn(Credentials(email, password))
+            onLogin.postValue(Unit)
         }
     }
-
 }

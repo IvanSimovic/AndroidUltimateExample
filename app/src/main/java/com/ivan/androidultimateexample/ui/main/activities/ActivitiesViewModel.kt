@@ -6,7 +6,6 @@ import com.ivan.androidultimateexample.ui.base.viewmodel.BaseViewModel
 import com.ivan.androidultimateexample.ui.util.asMutableLiveData
 import com.ivan.todoengine.logic.activity.Activity
 import com.ivan.todoengine.logic.activity.ActivityLogic
-import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 class ActivitiesViewModel
@@ -17,10 +16,9 @@ class ActivitiesViewModel
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     fun getActivities() {
         runForUI {
-            runBlocking { tasks.value = activityLogic.getActivities() }
+            tasks.value = activityLogic.getActivities()
         }
     }
 
     val tasks = listOf<Activity>().asMutableLiveData()
-
 }

@@ -5,7 +5,6 @@ import com.ivan.androidultimateexample.ui.base.viewmodel.BaseViewModel
 import com.ivan.androidultimateexample.ui.util.SingleLiveEvent
 import com.ivan.todoengine.logic.activity.Activity
 import com.ivan.todoengine.logic.activity.ActivityLogic
-import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 class ActivityEditViewModel
@@ -16,19 +15,15 @@ class ActivityEditViewModel
 
     fun getActivity(activityId: String) {
         runForUI {
-            runBlocking {
-                activity.value = activityLogic.getActivity(activityId)
-            }
+            activity.value = activityLogic.getActivity(activityId)
         }
     }
 
     fun updateActivity() {
         run {
-            runBlocking {
-                activity.value?.let {
-                    activityLogic.updateActivity(it)
-                    navigationEvent.postValue(NavigationEvent.BACK)
-                }
+            activity.value?.let {
+                activityLogic.updateActivity(it)
+                navigationEvent.postValue(NavigationEvent.BACK)
             }
         }
     }

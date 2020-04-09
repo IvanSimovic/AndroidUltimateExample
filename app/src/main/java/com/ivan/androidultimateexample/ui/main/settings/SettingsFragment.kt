@@ -10,7 +10,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 
-class SettingsFragment: BaseBoundFragment<SettingsViewModel>() {
+class SettingsFragment : BaseBoundFragment<SettingsViewModel>() {
 
     override val layoutRId: Int
         get() = R.layout.fragment_settings

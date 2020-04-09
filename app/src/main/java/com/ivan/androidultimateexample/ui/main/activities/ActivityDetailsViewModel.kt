@@ -6,7 +6,6 @@ import com.ivan.androidultimateexample.ui.base.viewmodel.BaseViewModel
 import com.ivan.todoengine.logic.activity.Activity
 import com.ivan.todoengine.logic.activity.ActivityLogic
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 class ActivityDetailsViewModel
@@ -22,12 +21,9 @@ class ActivityDetailsViewModel
 
     fun deleteActivity() {
         run {
-            runBlocking {
-                activity.value?.let {
-                    activityLogic.deleteActivity(it.id)
-                }
+            activity.value?.let {
+                activityLogic.deleteActivity(it.id)
             }
         }
     }
-
 }

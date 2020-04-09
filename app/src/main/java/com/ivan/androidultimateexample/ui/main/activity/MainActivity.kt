@@ -15,9 +15,16 @@ import com.ivan.androidultimateexample.ui.base.di.FragmentScope
 import com.ivan.androidultimateexample.ui.base.di.viewmodel.ViewModelKey
 import com.ivan.androidultimateexample.ui.base.store.SharedPreferencesStore
 import com.ivan.androidultimateexample.ui.base.view.BaseBoundActivity
+import com.ivan.androidultimateexample.ui.main.activities.ActivitiesFragment
+import com.ivan.androidultimateexample.ui.main.activities.ActivitiesModule
+import com.ivan.androidultimateexample.ui.main.activities.ActivityDetailsFragment
+import com.ivan.androidultimateexample.ui.main.activities.ActivityDetailsModule
+import com.ivan.androidultimateexample.ui.main.activities.ActivityEditModule
+import com.ivan.androidultimateexample.ui.main.activities.ActivityEditFragment
+import com.ivan.androidultimateexample.ui.main.activities.ActivityCreateModule
+import com.ivan.androidultimateexample.ui.main.activities.ActivityCreateFragment
 import com.ivan.androidultimateexample.ui.main.settings.SettingsFragment
 import com.ivan.androidultimateexample.ui.main.settings.SettingsModule
-import com.ivan.androidultimateexample.ui.main.activities.*
 import com.ivan.androidultimateexample.ui.main.login.LoginFragment
 import com.ivan.androidultimateexample.ui.main.login.LoginModule
 import dagger.Binds
@@ -45,7 +52,6 @@ class MainActivity : BaseBoundActivity<MainViewModel>() {
     override fun bindToViewModel() {
         val navigationController = findNavController(R.id.main_navigation_host)
         nav_view.setupWithNavController(navigationController)
-
     }
 
     fun setHeader(title: String, headerStyle: HeaderStyles, leftClick: () -> Unit) {
@@ -135,4 +141,3 @@ abstract class MainFragmentBuilder {
     @ContributesAndroidInjector(modules = [LoginModule::class])
     abstract fun provideLoginFragment(): LoginFragment
 }
-

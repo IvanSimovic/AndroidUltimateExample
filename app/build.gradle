@@ -97,7 +97,7 @@ dependencies {
     implementation "com.google.dagger:dagger:$daggerVersion"
     implementation "com.google.dagger:dagger-android:$daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-rc01'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.0-alpha01'
 
     implementation 'com.jakewharton.threetenabp:threetenabp:1.2.1'
 
