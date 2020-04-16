@@ -1,4 +1,0 @@
---reporter=plain
---color
---reporter=plain,output=/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/build/reports/ktlint/ktlintAndroidTestSourceSetCheck.txt
-src/androidTest/java/com/ivan/androidultimateexample/ExampleInstrumentedTest.kt

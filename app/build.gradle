@@ -6,6 +6,14 @@ apply plugin: 'de.mannodermaus.android-junit5'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 android {
+    signingConfigs {
+        release {
+            keyAlias = 'androiddebugkey'
+            storePassword 'android'
+            keyPassword 'android'
+            storeFile file('/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/debug.keystore')
+        }
+    }
     compileSdkVersion 29
 
     defaultConfig {
@@ -41,9 +49,17 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            shrinkResources false
+            debuggable true
+        }
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 
