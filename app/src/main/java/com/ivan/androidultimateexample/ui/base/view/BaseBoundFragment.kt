@@ -46,7 +46,7 @@ abstract class BaseBoundFragment<VIEW_MODEL_TYPE : BaseViewModel> : BaseFragment
 
         viewModel.error.observe(viewLifecycleOwner) {
             it?.let {
-                Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
+                Toast.makeText(context, it, Toast.LENGTH_LONG).show()
             }
         }
 

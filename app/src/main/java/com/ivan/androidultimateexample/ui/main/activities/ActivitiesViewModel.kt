@@ -15,7 +15,7 @@ class ActivitiesViewModel
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     fun getActivities() {
-        runForUI {
+        run {
             tasks.value = activityLogic.getActivities()
         }
     }

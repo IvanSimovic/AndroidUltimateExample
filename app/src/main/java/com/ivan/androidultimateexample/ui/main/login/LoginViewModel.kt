@@ -19,7 +19,7 @@ class LoginViewModel
     fun login() {
         run {
             sessionRepository.logIn(Credentials(email, password))
-            onLogin.postValue(Unit)
+            onLogin.value = Unit
         }
     }
 }
