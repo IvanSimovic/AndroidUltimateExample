@@ -26,9 +26,8 @@ class OAuth2TokenRefresher
                     oldToken.refreshToken
                 )
             ).execute().body()
+                ?: throw NullPointerException("Failed to refresh token")
             // Response body should not be null if it was successful
-            if(newToken == null)
-                throw NullPointerException("Failed to refresh token")
 
             synchronized(lock) {
                 tokenStorage.saveToken(newToken)

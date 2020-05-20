@@ -14,7 +14,7 @@ class ActivityEditViewModel
     val activity = MutableLiveData<Activity>()
 
     fun getActivity(activityId: String) {
-        runForUI {
+        run {
             activity.value = activityLogic.getActivity(activityId)
         }
     }
@@ -23,7 +23,7 @@ class ActivityEditViewModel
         run {
             activity.value?.let {
                 activityLogic.updateActivity(it)
-                navigationEvent.postValue(NavigationEvent.BACK)
+                navigationEvent.value = NavigationEvent.BACK
             }
         }
     }

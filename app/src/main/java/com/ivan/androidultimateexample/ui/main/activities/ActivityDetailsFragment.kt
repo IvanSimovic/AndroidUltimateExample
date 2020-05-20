@@ -1,6 +1,7 @@
 package com.ivan.androidultimateexample.ui.main.activities
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ivan.androidultimateexample.BR
@@ -33,9 +34,12 @@ class ActivityDetailsFragment : BaseBoundFragment<ActivityDetailsViewModel>() {
     override fun bindToViewModel() {
         viewModel.getActivity(args.activityId)
 
+        viewModel.navigationEvent.observe(viewLifecycleOwner){
+            findNavController().navigateUp()
+        }
+
         btnDelete.setOnClickListener {
             viewModel.deleteActivity()
-            findNavController().navigateUp()
         }
 
         btnEdit.setOnClickListener {

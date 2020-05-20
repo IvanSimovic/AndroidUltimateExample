@@ -6,6 +6,8 @@ import android.preference.PreferenceManager
 import androidx.room.Room
 import com.ivan.todoengine.data.base.AppDatabase
 import com.ivan.todoengine.data.local.activity.ActivityDao
+import com.ivan.todoengine.data.store.SecureKeyValueStore
+import com.ivan.todoengine.data.store.SecureSharedPreferencesStore
 import com.ivan.todoengine.data.store.SharedPreferencesStore
 import com.ivan.todoengine.data.store.SimpleKeyValueStore
 import dagger.Binds
@@ -39,4 +41,8 @@ abstract class CacheModule {
     @Singleton
     @Binds
     abstract fun provideSharedPreferencesStore(sharedPreferencesStore: SharedPreferencesStore): SimpleKeyValueStore
+
+    @Singleton
+    @Binds
+    abstract fun provideSecuredPreferencesStore(sharedPreferencesStore: SecureSharedPreferencesStore): SecureKeyValueStore
 }

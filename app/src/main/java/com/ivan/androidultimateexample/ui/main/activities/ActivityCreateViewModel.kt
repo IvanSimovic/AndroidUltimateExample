@@ -18,7 +18,7 @@ class ActivityCreateViewModel
         run {
             activity.value?.let {
                 activityLogic.insertActivity(it)
-                navigationEvent.postValue(NavigationEvent.BACK)
+                navigationEvent.value = NavigationEvent.BACK
             }
         }
     }

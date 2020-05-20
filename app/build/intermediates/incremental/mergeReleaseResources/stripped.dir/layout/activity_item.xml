@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                   
+
+    
+
+                 
+                           
+                                                                                           
+           
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        style="@style/Item"
+        android:clickable="true"
+        android:elevation="5dp"
+        android:focusable="true"
+        android:tag="layout/activity_item_0"         
+        android:orientation="vertical"  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+        <TextView
+            android:id="@+id/lblTitle"
+            style="@style/StandardText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:tag="binding_1"         
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@+id/lblHost"
+            style="@style/StandardText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:tag="binding_2"        
+            app:layout_constraintStart_toStartOf="@id/lblTitle"
+            app:layout_constraintTop_toBottomOf="@id/lblTitle"
+            tools:text="Hosted by Bob" />
+
+        <ImageView
+            android:id="@+id/imgClock"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_clock"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblHost" />
+
+        <TextView
+            android:id="@+id/lblDate"
+            style="@style/StandardText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:tag="binding_3"        
+            app:layout_constraintBottom_toBottomOf="@id/imgClock"
+            app:layout_constraintStart_toEndOf="@id/imgClock"
+            tools:text="2019-10-23  11:11:00" />
+
+        <ImageView
+            android:id="@+id/imgLocation"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_location"
+            app:layout_constraintStart_toEndOf="@id/lblDate"
+            app:layout_constraintTop_toBottomOf="@id/lblHost" />
+
+        <TextView
+            android:id="@+id/lblLocation"
+            style="@style/StandardText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:tag="binding_4"            
+            app:layout_constraintBottom_toBottomOf="@id/imgClock"
+            app:layout_constraintStart_toEndOf="@id/imgLocation"
+            tools:text="Venue, City" />
+
+        <TextView
+            android:id="@+id/lblDescription"
+            style="@style/SmallText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:tag="binding_5"               
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lblLocation"
+            tools:text="Description" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+         

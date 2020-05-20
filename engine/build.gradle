@@ -4,6 +4,14 @@ apply plugin: 'kotlin-kapt'
 apply plugin: "de.mannodermaus.android-junit5"
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/debug.keystore')
+            keyAlias = 'androiddebugkey'
+            storePassword 'android'
+            keyPassword 'android'
+        }
+    }
     compileSdkVersion 29
 
 
@@ -21,14 +29,17 @@ android {
     }
 
     buildTypes {
-
         debug {
+            minifyEnabled false
+            debuggable true
             buildConfigField "String", "BASE_URL", '"http://192.168.2.3:5000/api/"'
         }
         release {
-            buildConfigField "String", "BASE_URL", '"http://192.168.2.3:5000/api/"'
-            minifyEnabled false
+            debuggable false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            buildConfigField "String", "BASE_URL", '"http://192.168.2.3:5000/api/"'
         }
     }
 
