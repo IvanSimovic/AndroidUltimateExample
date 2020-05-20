@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                        
+    
+                 
+                            
+                                                                                       
+           
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical" android:tag="layout/fragment_settings_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+         
