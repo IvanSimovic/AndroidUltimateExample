@@ -19,12 +19,12 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.3.0-alpha01] /Users/iva
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.0-beta4] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/99c74c18a49803d6cc419ccfa571e88b/constraintlayout-2.0.0-beta4/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.navigation:navigation-ui:2.3.0-alpha04] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/8af5939024241e05136f64aebb80de3f/navigation-ui-2.3.0-alpha04/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.1.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/305f48689fab8eb470df6f3e7b48d954/material-1.1.0/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.dagger:dagger-android-support:2.25.2] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/b94bc838888862ff41aa29a3e147949b/jetified-dagger-android-support-2.25.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.dagger:dagger-android-support:2.25.2] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/44d3d1d972347bd2e43ce353f5a83a69/jetified-dagger-android-support-2.25.2/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/a8d7864499d43788b85530da3daf39e5/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/5f8cd852bebe291750f4f0194cb9ada0/viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/061b7c2b46385cdc75f035f48191d862/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-reactivestreams:2.2.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/9f8f24f72225c1fdf3587a86adff2145/lifecycle-reactivestreams-2.2.0/AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.dagger:dagger-android:2.25.2] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/eae9acf994e5cc7b6f94117ee87248be/jetified-dagger-android-2.25.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.dagger:dagger-android:2.25.2] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/a6527c77298b5e941ae2a40325e0d4db/jetified-dagger-android-2.25.2/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/6553a6938e29bd3ae37005727e1eff46/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/a2044ddcbc6d2e974d3568f9a290fe9a/appcompat-resources-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/ee5d91bbb4a8a556294e27039b38d038/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -172,8 +172,8 @@ MERGED from [androidx.navigation:navigation-ui:2.3.0-alpha04] /Users/ivan.simovi
 MERGED from [androidx.navigation:navigation-ui:2.3.0-alpha04] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/8af5939024241e05136f64aebb80de3f/navigation-ui-2.3.0-alpha04/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.material:material:1.1.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/305f48689fab8eb470df6f3e7b48d954/material-1.1.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.1.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/305f48689fab8eb470df6f3e7b48d954/material-1.1.0/AndroidManifest.xml:20:5-44
-MERGED from [com.google.dagger:dagger-android-support:2.25.2] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/b94bc838888862ff41aa29a3e147949b/jetified-dagger-android-support-2.25.2/AndroidManifest.xml:20:5-44
-MERGED from [com.google.dagger:dagger-android-support:2.25.2] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/b94bc838888862ff41aa29a3e147949b/jetified-dagger-android-support-2.25.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:dagger-android-support:2.25.2] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/44d3d1d972347bd2e43ce353f5a83a69/jetified-dagger-android-support-2.25.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:dagger-android-support:2.25.2] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/44d3d1d972347bd2e43ce353f5a83a69/jetified-dagger-android-support-2.25.2/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/a8d7864499d43788b85530da3daf39e5/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/a8d7864499d43788b85530da3daf39e5/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/5f8cd852bebe291750f4f0194cb9ada0/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
@@ -182,8 +182,8 @@ MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/ivan.simovic/.grad
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/061b7c2b46385cdc75f035f48191d862/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-reactivestreams:2.2.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/9f8f24f72225c1fdf3587a86adff2145/lifecycle-reactivestreams-2.2.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-reactivestreams:2.2.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/9f8f24f72225c1fdf3587a86adff2145/lifecycle-reactivestreams-2.2.0/AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.dagger:dagger-android:2.25.2] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/eae9acf994e5cc7b6f94117ee87248be/jetified-dagger-android-2.25.2/AndroidManifest.xml:20:5-44
-MERGED from [com.google.dagger:dagger-android:2.25.2] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/eae9acf994e5cc7b6f94117ee87248be/jetified-dagger-android-2.25.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:dagger-android:2.25.2] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/a6527c77298b5e941ae2a40325e0d4db/jetified-dagger-android-2.25.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:dagger-android:2.25.2] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/a6527c77298b5e941ae2a40325e0d4db/jetified-dagger-android-2.25.2/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/6553a6938e29bd3ae37005727e1eff46/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/6553a6938e29bd3ae37005727e1eff46/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/a2044ddcbc6d2e974d3568f9a290fe9a/appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
