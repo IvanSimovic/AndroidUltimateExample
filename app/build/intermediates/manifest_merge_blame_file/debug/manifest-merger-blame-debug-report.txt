@@ -31,51 +31,50 @@
 20-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:12:9-54
 21        android:supportsRtl="true"
 21-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:13:9-35
-22        android:testOnly="true"
-23        android:theme="@style/AppThemeLight"
-23-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:14:9-45
-24        android:usesCleartextTraffic="true" >
-24-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:9:9-44
-25        <activity
-25-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:15:9-23:20
-26            android:name="com.ivan.androidultimateexample.ui.main.activity.MainActivity"
-26-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:16:13-89
-27            android:label="@string/app_name" >
-27-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:17:13-45
-28            <intent-filter>
-28-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:18:13-22:29
-29                <action android:name="android.intent.action.MAIN" />
-29-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:19:17-69
-29-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:19:25-66
-30
-31                <category android:name="android.intent.category.LAUNCHER" />
-31-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:21:17-77
-31-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:21:27-74
-32            </intent-filter>
-33        </activity>
-34        <activity android:name="com.ivan.androidultimateexample.ui.splash.SplashActivity" />
-34-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:24:9-93
-34-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:24:19-90
-35
-36        <provider
-36-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/8939dda68fec7783a64d00f977043124/lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
-37            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-37-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/8939dda68fec7783a64d00f977043124/lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
-38            android:authorities="com.ivan.androidultimateexample.lifecycle-process"
-38-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/8939dda68fec7783a64d00f977043124/lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
-39            android:exported="false"
-39-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/8939dda68fec7783a64d00f977043124/lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
-40            android:multiprocess="true" />
-40-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/8939dda68fec7783a64d00f977043124/lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
-41
-42        <service
-42-->[androidx.room:room-runtime:2.2.5] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/b5d46a4ee7c7a9e89e8914943fed9d00/room-runtime-2.2.5/AndroidManifest.xml:25:9-28:40
-43            android:name="androidx.room.MultiInstanceInvalidationService"
-43-->[androidx.room:room-runtime:2.2.5] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/b5d46a4ee7c7a9e89e8914943fed9d00/room-runtime-2.2.5/AndroidManifest.xml:26:13-74
-44            android:directBootAware="true"
-44-->[androidx.room:room-runtime:2.2.5] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/b5d46a4ee7c7a9e89e8914943fed9d00/room-runtime-2.2.5/AndroidManifest.xml:27:13-43
-45            android:exported="false" />
-45-->[androidx.room:room-runtime:2.2.5] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/b5d46a4ee7c7a9e89e8914943fed9d00/room-runtime-2.2.5/AndroidManifest.xml:28:13-37
-46    </application>
-47
-48</manifest>
+22        android:theme="@style/AppThemeLight"
+22-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:14:9-45
+23        android:usesCleartextTraffic="true" >
+23-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:9:9-44
+24        <activity
+24-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:15:9-23:20
+25            android:name="com.ivan.androidultimateexample.ui.main.activity.MainActivity"
+25-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:16:13-89
+26            android:label="@string/app_name" >
+26-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:17:13-45
+27            <intent-filter>
+27-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:18:13-22:29
+28                <action android:name="android.intent.action.MAIN" />
+28-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:19:17-69
+28-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:19:25-66
+29
+30                <category android:name="android.intent.category.LAUNCHER" />
+30-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:21:17-77
+30-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:21:27-74
+31            </intent-filter>
+32        </activity>
+33        <activity android:name="com.ivan.androidultimateexample.ui.splash.SplashActivity" />
+33-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:24:9-93
+33-->/Users/ivan.simovic/Projects/Android/AndroidUltimateExample/app/src/main/AndroidManifest.xml:24:19-90
+34
+35        <provider
+35-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/8939dda68fec7783a64d00f977043124/lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+36            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+36-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/8939dda68fec7783a64d00f977043124/lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+37            android:authorities="com.ivan.androidultimateexample.lifecycle-process"
+37-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/8939dda68fec7783a64d00f977043124/lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+38            android:exported="false"
+38-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/8939dda68fec7783a64d00f977043124/lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+39            android:multiprocess="true" />
+39-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/8939dda68fec7783a64d00f977043124/lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+40
+41        <service
+41-->[androidx.room:room-runtime:2.2.5] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/b5d46a4ee7c7a9e89e8914943fed9d00/room-runtime-2.2.5/AndroidManifest.xml:25:9-28:40
+42            android:name="androidx.room.MultiInstanceInvalidationService"
+42-->[androidx.room:room-runtime:2.2.5] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/b5d46a4ee7c7a9e89e8914943fed9d00/room-runtime-2.2.5/AndroidManifest.xml:26:13-74
+43            android:directBootAware="true"
+43-->[androidx.room:room-runtime:2.2.5] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/b5d46a4ee7c7a9e89e8914943fed9d00/room-runtime-2.2.5/AndroidManifest.xml:27:13-43
+44            android:exported="false" />
+44-->[androidx.room:room-runtime:2.2.5] /Users/ivan.simovic/.gradle/caches/transforms-2/files-2.1/b5d46a4ee7c7a9e89e8914943fed9d00/room-runtime-2.2.5/AndroidManifest.xml:28:13-37
+45    </application>
+46
+47</manifest>
