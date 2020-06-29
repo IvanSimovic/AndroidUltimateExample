@@ -2,26 +2,30 @@
 package com.ivan.androidultimateexample.ui.main.settings;
 
 import dagger.internal.Factory;
+import javax.inject.Provider;
+import kotlinx.coroutines.CoroutineScope;
 
 @SuppressWarnings({
     "unchecked",
     "rawtypes"
 })
 public final class SettingsViewModel_Factory implements Factory<SettingsViewModel> {
+  private final Provider<CoroutineScope> appScopeProvider;
+
+  public SettingsViewModel_Factory(Provider<CoroutineScope> appScopeProvider) {
+    this.appScopeProvider = appScopeProvider;
+  }
+
   @Override
   public SettingsViewModel get() {
-    return newInstance();
+    return newInstance(appScopeProvider.get());
   }
 
-  public static SettingsViewModel_Factory create() {
-    return InstanceHolder.INSTANCE;
+  public static SettingsViewModel_Factory create(Provider<CoroutineScope> appScopeProvider) {
+    return new SettingsViewModel_Factory(appScopeProvider);
   }
 
-  public static SettingsViewModel newInstance() {
-    return new SettingsViewModel();
-  }
-
-  private static final class InstanceHolder {
-    private static final SettingsViewModel_Factory INSTANCE = new SettingsViewModel_Factory();
+  public static SettingsViewModel newInstance(CoroutineScope appScope) {
+    return new SettingsViewModel(appScope);
   }
 }

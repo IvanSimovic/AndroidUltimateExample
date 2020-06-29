@@ -2,26 +2,30 @@
 package com.ivan.androidultimateexample.ui.splash;
 
 import dagger.internal.Factory;
+import javax.inject.Provider;
+import kotlinx.coroutines.CoroutineScope;
 
 @SuppressWarnings({
     "unchecked",
     "rawtypes"
 })
 public final class SplashViewModel_Factory implements Factory<SplashViewModel> {
+  private final Provider<CoroutineScope> appScopeProvider;
+
+  public SplashViewModel_Factory(Provider<CoroutineScope> appScopeProvider) {
+    this.appScopeProvider = appScopeProvider;
+  }
+
   @Override
   public SplashViewModel get() {
-    return newInstance();
+    return newInstance(appScopeProvider.get());
   }
 
-  public static SplashViewModel_Factory create() {
-    return InstanceHolder.INSTANCE;
+  public static SplashViewModel_Factory create(Provider<CoroutineScope> appScopeProvider) {
+    return new SplashViewModel_Factory(appScopeProvider);
   }
 
-  public static SplashViewModel newInstance() {
-    return new SplashViewModel();
-  }
-
-  private static final class InstanceHolder {
-    private static final SplashViewModel_Factory INSTANCE = new SplashViewModel_Factory();
+  public static SplashViewModel newInstance(CoroutineScope appScope) {
+    return new SplashViewModel(appScope);
   }
 }

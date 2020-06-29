@@ -4,6 +4,7 @@ package com.ivan.androidultimateexample.ui.main.login;
 import com.ivan.todoengine.networking.session.SessionRepository;
 import dagger.internal.Factory;
 import javax.inject.Provider;
+import kotlinx.coroutines.CoroutineScope;
 
 @SuppressWarnings({
     "unchecked",
@@ -12,21 +13,26 @@ import javax.inject.Provider;
 public final class LoginViewModel_Factory implements Factory<LoginViewModel> {
   private final Provider<SessionRepository> sessionRepositoryProvider;
 
-  public LoginViewModel_Factory(Provider<SessionRepository> sessionRepositoryProvider) {
+  private final Provider<CoroutineScope> appScopeProvider;
+
+  public LoginViewModel_Factory(Provider<SessionRepository> sessionRepositoryProvider,
+      Provider<CoroutineScope> appScopeProvider) {
     this.sessionRepositoryProvider = sessionRepositoryProvider;
+    this.appScopeProvider = appScopeProvider;
   }
 
   @Override
   public LoginViewModel get() {
-    return newInstance(sessionRepositoryProvider.get());
+    return newInstance(sessionRepositoryProvider.get(), appScopeProvider.get());
   }
 
-  public static LoginViewModel_Factory create(
-      Provider<SessionRepository> sessionRepositoryProvider) {
-    return new LoginViewModel_Factory(sessionRepositoryProvider);
+  public static LoginViewModel_Factory create(Provider<SessionRepository> sessionRepositoryProvider,
+      Provider<CoroutineScope> appScopeProvider) {
+    return new LoginViewModel_Factory(sessionRepositoryProvider, appScopeProvider);
   }
 
-  public static LoginViewModel newInstance(SessionRepository sessionRepository) {
-    return new LoginViewModel(sessionRepository);
+  public static LoginViewModel newInstance(SessionRepository sessionRepository,
+      CoroutineScope appScope) {
+    return new LoginViewModel(sessionRepository, appScope);
   }
 }

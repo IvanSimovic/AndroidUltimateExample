@@ -9,6 +9,7 @@ import com.ivan.androidultimateexample.App;
 import com.ivan.androidultimateexample.App_MembersInjector;
 import com.ivan.androidultimateexample.ui.base.di.module.ActivityBuilder_ProvideMainActivity;
 import com.ivan.androidultimateexample.ui.base.di.module.ActivityBuilder_ProvideSplashActivity;
+import com.ivan.androidultimateexample.ui.base.di.module.CoroutineModule_ProvideAppScopeFactory;
 import com.ivan.androidultimateexample.ui.base.di.viewmodel.ViewModelFactory;
 import com.ivan.androidultimateexample.ui.base.view.BaseBoundActivity_MembersInjector;
 import com.ivan.androidultimateexample.ui.base.view.BaseBoundFragment_MembersInjector;
@@ -96,6 +97,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import javax.inject.Provider;
+import kotlinx.coroutines.CoroutineScope;
 import okhttp3.Authenticator;
 import okhttp3.Dispatcher;
 import okhttp3.Interceptor;
@@ -111,6 +113,8 @@ public final class DaggerAppComponent implements AppComponent {
   private Provider<ActivityBuilder_ProvideMainActivity.MainActivitySubcomponent.Factory> mainActivitySubcomponentFactoryProvider;
 
   private Provider<App> seedInstanceProvider;
+
+  private Provider<CoroutineScope> provideAppScopeProvider;
 
   private Provider<Application> provideApplicationProvider;
 
@@ -200,6 +204,7 @@ public final class DaggerAppComponent implements AppComponent {
         return new MainActivitySubcomponentFactory();}
     };
     this.seedInstanceProvider = InstanceFactory.create(seedInstanceParam);
+    this.provideAppScopeProvider = DoubleCheck.provider(CoroutineModule_ProvideAppScopeFactory.create(seedInstanceProvider));
     this.provideApplicationProvider = DoubleCheck.provider((Provider) seedInstanceProvider);
     this.provideAppDatabaseProvider = DoubleCheck.provider(CacheModule_ProvideAppDatabaseFactory.create((Provider) provideApplicationProvider));
     this.provideActivitiesDaoProvider = DoubleCheck.provider(CacheModule_ProvideActivitiesDaoFactory.create(provideAppDatabaseProvider));
@@ -266,16 +271,24 @@ public final class DaggerAppComponent implements AppComponent {
   }
 
   private final class SplashActivitySubcomponentImpl implements ActivityBuilder_ProvideSplashActivity.SplashActivitySubcomponent {
+    private Provider<SplashViewModel> splashViewModelProvider;
+
     private SplashActivitySubcomponentImpl(SplashActivity arg0) {
 
+      initialize(arg0);
     }
 
     private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
         ) {
-      return Collections.<Class<? extends ViewModel>, Provider<ViewModel>>singletonMap(SplashViewModel.class, (Provider) SplashViewModel_Factory.create());}
+      return Collections.<Class<? extends ViewModel>, Provider<ViewModel>>singletonMap(SplashViewModel.class, (Provider) splashViewModelProvider);}
 
     private ViewModelFactory getViewModelFactory() {
       return new ViewModelFactory(getMapOfClassOfAndProviderOfViewModel());}
+
+    @SuppressWarnings("unchecked")
+    private void initialize(final SplashActivity arg0) {
+      this.splashViewModelProvider = SplashViewModel_Factory.create(DaggerAppComponent.this.provideAppScopeProvider);
+    }
 
     @Override
     public void inject(SplashActivity arg0) {
@@ -309,6 +322,8 @@ public final class DaggerAppComponent implements AppComponent {
 
     private Provider<MainFragmentBuilder_ProvideLoginFragment.LoginFragmentSubcomponent.Factory> loginFragmentSubcomponentFactoryProvider;
 
+    private Provider<MainViewModel> mainViewModelProvider;
+
     private MainActivitySubcomponentImpl(MainActivity arg0) {
 
       initialize(arg0);
@@ -323,7 +338,7 @@ public final class DaggerAppComponent implements AppComponent {
 
     private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
         ) {
-      return Collections.<Class<? extends ViewModel>, Provider<ViewModel>>singletonMap(MainViewModel.class, (Provider) MainViewModel_Factory.create());}
+      return Collections.<Class<? extends ViewModel>, Provider<ViewModel>>singletonMap(MainViewModel.class, (Provider) mainViewModelProvider);}
 
     private ViewModelFactory getViewModelFactory() {
       return new ViewModelFactory(getMapOfClassOfAndProviderOfViewModel());}
@@ -365,6 +380,7 @@ public final class DaggerAppComponent implements AppComponent {
         public MainFragmentBuilder_ProvideLoginFragment.LoginFragmentSubcomponent.Factory get() {
           return new LoginFragmentSubcomponentFactory();}
       };
+      this.mainViewModelProvider = MainViewModel_Factory.create(DaggerAppComponent.this.provideAppScopeProvider);
     }
 
     @Override
@@ -396,14 +412,14 @@ public final class DaggerAppComponent implements AppComponent {
 
       private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
           ) {
-        return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(2).put(MainViewModel.class, (Provider) MainViewModel_Factory.create()).put(ActivitiesViewModel.class, (Provider) activitiesViewModelProvider).build();}
+        return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(2).put(MainViewModel.class, (Provider) MainActivitySubcomponentImpl.this.mainViewModelProvider).put(ActivitiesViewModel.class, (Provider) activitiesViewModelProvider).build();}
 
       private ViewModelFactory getViewModelFactory() {
         return new ViewModelFactory(getMapOfClassOfAndProviderOfViewModel());}
 
       @SuppressWarnings("unchecked")
       private void initialize(final ActivitiesFragment arg0) {
-        this.activitiesViewModelProvider = ActivitiesViewModel_Factory.create(DaggerAppComponent.this.activityLogicProvider);
+        this.activitiesViewModelProvider = ActivitiesViewModel_Factory.create(DaggerAppComponent.this.activityLogicProvider, DaggerAppComponent.this.provideAppScopeProvider);
       }
 
       @Override
@@ -436,14 +452,14 @@ public final class DaggerAppComponent implements AppComponent {
 
       private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
           ) {
-        return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(2).put(MainViewModel.class, (Provider) MainViewModel_Factory.create()).put(ActivityDetailsViewModel.class, (Provider) activityDetailsViewModelProvider).build();}
+        return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(2).put(MainViewModel.class, (Provider) MainActivitySubcomponentImpl.this.mainViewModelProvider).put(ActivityDetailsViewModel.class, (Provider) activityDetailsViewModelProvider).build();}
 
       private ViewModelFactory getViewModelFactory() {
         return new ViewModelFactory(getMapOfClassOfAndProviderOfViewModel());}
 
       @SuppressWarnings("unchecked")
       private void initialize(final ActivityDetailsFragment arg0) {
-        this.activityDetailsViewModelProvider = ActivityDetailsViewModel_Factory.create(DaggerAppComponent.this.activityLogicProvider);
+        this.activityDetailsViewModelProvider = ActivityDetailsViewModel_Factory.create(DaggerAppComponent.this.activityLogicProvider, DaggerAppComponent.this.provideAppScopeProvider);
       }
 
       @Override
@@ -477,14 +493,14 @@ public final class DaggerAppComponent implements AppComponent {
 
       private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
           ) {
-        return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(2).put(MainViewModel.class, (Provider) MainViewModel_Factory.create()).put(ActivityEditViewModel.class, (Provider) activityEditViewModelProvider).build();}
+        return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(2).put(MainViewModel.class, (Provider) MainActivitySubcomponentImpl.this.mainViewModelProvider).put(ActivityEditViewModel.class, (Provider) activityEditViewModelProvider).build();}
 
       private ViewModelFactory getViewModelFactory() {
         return new ViewModelFactory(getMapOfClassOfAndProviderOfViewModel());}
 
       @SuppressWarnings("unchecked")
       private void initialize(final ActivityEditFragment arg0) {
-        this.activityEditViewModelProvider = ActivityEditViewModel_Factory.create(DaggerAppComponent.this.activityLogicProvider);
+        this.activityEditViewModelProvider = ActivityEditViewModel_Factory.create(DaggerAppComponent.this.activityLogicProvider, DaggerAppComponent.this.provideAppScopeProvider);
       }
 
       @Override
@@ -517,14 +533,14 @@ public final class DaggerAppComponent implements AppComponent {
 
       private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
           ) {
-        return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(2).put(MainViewModel.class, (Provider) MainViewModel_Factory.create()).put(ActivityCreateViewModel.class, (Provider) activityCreateViewModelProvider).build();}
+        return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(2).put(MainViewModel.class, (Provider) MainActivitySubcomponentImpl.this.mainViewModelProvider).put(ActivityCreateViewModel.class, (Provider) activityCreateViewModelProvider).build();}
 
       private ViewModelFactory getViewModelFactory() {
         return new ViewModelFactory(getMapOfClassOfAndProviderOfViewModel());}
 
       @SuppressWarnings("unchecked")
       private void initialize(final ActivityCreateFragment arg0) {
-        this.activityCreateViewModelProvider = ActivityCreateViewModel_Factory.create(DaggerAppComponent.this.activityLogicProvider);
+        this.activityCreateViewModelProvider = ActivityCreateViewModel_Factory.create(DaggerAppComponent.this.activityLogicProvider, DaggerAppComponent.this.provideAppScopeProvider);
       }
 
       @Override
@@ -548,16 +564,24 @@ public final class DaggerAppComponent implements AppComponent {
     }
 
     private final class SettingsFragmentSubcomponentImpl implements MainFragmentBuilder_ProvideSettingsFragment.SettingsFragmentSubcomponent {
+      private Provider<SettingsViewModel> settingsViewModelProvider;
+
       private SettingsFragmentSubcomponentImpl(SettingsFragment arg0) {
 
+        initialize(arg0);
       }
 
       private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
           ) {
-        return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(2).put(MainViewModel.class, (Provider) MainViewModel_Factory.create()).put(SettingsViewModel.class, (Provider) SettingsViewModel_Factory.create()).build();}
+        return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(2).put(MainViewModel.class, (Provider) MainActivitySubcomponentImpl.this.mainViewModelProvider).put(SettingsViewModel.class, (Provider) settingsViewModelProvider).build();}
 
       private ViewModelFactory getViewModelFactory() {
         return new ViewModelFactory(getMapOfClassOfAndProviderOfViewModel());}
+
+      @SuppressWarnings("unchecked")
+      private void initialize(final SettingsFragment arg0) {
+        this.settingsViewModelProvider = SettingsViewModel_Factory.create(DaggerAppComponent.this.provideAppScopeProvider);
+      }
 
       @Override
       public void inject(SettingsFragment arg0) {
@@ -589,14 +613,14 @@ public final class DaggerAppComponent implements AppComponent {
 
       private Map<Class<? extends ViewModel>, Provider<ViewModel>> getMapOfClassOfAndProviderOfViewModel(
           ) {
-        return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(2).put(MainViewModel.class, (Provider) MainViewModel_Factory.create()).put(LoginViewModel.class, (Provider) loginViewModelProvider).build();}
+        return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(2).put(MainViewModel.class, (Provider) MainActivitySubcomponentImpl.this.mainViewModelProvider).put(LoginViewModel.class, (Provider) loginViewModelProvider).build();}
 
       private ViewModelFactory getViewModelFactory() {
         return new ViewModelFactory(getMapOfClassOfAndProviderOfViewModel());}
 
       @SuppressWarnings("unchecked")
       private void initialize(final LoginFragment arg0) {
-        this.loginViewModelProvider = LoginViewModel_Factory.create(DaggerAppComponent.this.provideDefaultSessionRepositoryProvider);
+        this.loginViewModelProvider = LoginViewModel_Factory.create(DaggerAppComponent.this.provideDefaultSessionRepositoryProvider, DaggerAppComponent.this.provideAppScopeProvider);
       }
 
       @Override

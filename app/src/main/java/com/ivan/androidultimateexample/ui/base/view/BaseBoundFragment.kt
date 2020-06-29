@@ -5,8 +5,11 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.observe
+import com.ivan.androidultimateexample.App
 import com.ivan.androidultimateexample.ui.base.viewmodel.BaseViewModel
 import com.ivan.androidultimateexample.ui.main.activity.MainActivity
+import kotlinx.coroutines.CoroutineScope
+import java.lang.Exception
 import javax.inject.Inject
 
 /**
@@ -31,6 +34,8 @@ abstract class BaseBoundFragment<VIEW_MODEL_TYPE : BaseViewModel> : BaseFragment
 
     override fun postInflate(viewDataBinding: ViewDataBinding?) {
         super.postInflate(viewDataBinding)
+
+        //(this.activity?.application as App).appValue
 
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(viewModelClass)
         lifecycle.addObserver(viewModel)

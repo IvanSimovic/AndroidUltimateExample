@@ -9,6 +9,7 @@ import com.ivan.androidultimateexample.ui.main.activity.MainActivity
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+import kotlinx.coroutines.CoroutineScope
 import javax.inject.Inject
 
 class SplashActivity : BaseBoundActivity<SplashViewModel>() {
@@ -26,7 +27,9 @@ class SplashActivity : BaseBoundActivity<SplashViewModel>() {
 }
 
 class SplashViewModel
-@Inject constructor() : BaseViewModel()
+@Inject constructor(
+    appScope: CoroutineScope
+) : BaseViewModel(appScope)
 
 @Module
 abstract class SplashModule {

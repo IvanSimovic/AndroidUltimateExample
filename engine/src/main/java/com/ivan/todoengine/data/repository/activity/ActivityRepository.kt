@@ -16,7 +16,7 @@ class ActivityRepository @Inject constructor(
 ) {
 
 
-    suspend fun insertActivity(task: Activity) {
+    /*suspend fun insertActivity(task: Activity) {
         activityApi.create(task.toActivityDM())
     }
 
@@ -32,9 +32,9 @@ class ActivityRepository @Inject constructor(
         activityApi.list().body()!!.toActivity()
 
     suspend fun getActivity(id: String) = activityApi.details(id).body()!!.toActivity()
+*/
 
-
-   /* suspend fun insertActivity(task: Activity) {
+    suspend fun insertActivity(task: Activity) {
         activityDao.create(task.toActivityEntity())
     }
 
@@ -50,5 +50,4 @@ class ActivityRepository @Inject constructor(
         activityDao.list().toActivity()
 
     suspend fun getActivity(id: String) = activityDao.details(id).toActivity()
-*/
 }

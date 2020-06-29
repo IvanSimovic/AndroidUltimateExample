@@ -4,6 +4,7 @@ package com.ivan.androidultimateexample.ui.main.activities;
 import com.ivan.todoengine.logic.activity.ActivityLogic;
 import dagger.internal.Factory;
 import javax.inject.Provider;
+import kotlinx.coroutines.CoroutineScope;
 
 @SuppressWarnings({
     "unchecked",
@@ -12,21 +13,26 @@ import javax.inject.Provider;
 public final class ActivityCreateViewModel_Factory implements Factory<ActivityCreateViewModel> {
   private final Provider<ActivityLogic> activityLogicProvider;
 
-  public ActivityCreateViewModel_Factory(Provider<ActivityLogic> activityLogicProvider) {
+  private final Provider<CoroutineScope> appScopeProvider;
+
+  public ActivityCreateViewModel_Factory(Provider<ActivityLogic> activityLogicProvider,
+      Provider<CoroutineScope> appScopeProvider) {
     this.activityLogicProvider = activityLogicProvider;
+    this.appScopeProvider = appScopeProvider;
   }
 
   @Override
   public ActivityCreateViewModel get() {
-    return newInstance(activityLogicProvider.get());
+    return newInstance(activityLogicProvider.get(), appScopeProvider.get());
   }
 
   public static ActivityCreateViewModel_Factory create(
-      Provider<ActivityLogic> activityLogicProvider) {
-    return new ActivityCreateViewModel_Factory(activityLogicProvider);
+      Provider<ActivityLogic> activityLogicProvider, Provider<CoroutineScope> appScopeProvider) {
+    return new ActivityCreateViewModel_Factory(activityLogicProvider, appScopeProvider);
   }
 
-  public static ActivityCreateViewModel newInstance(ActivityLogic activityLogic) {
-    return new ActivityCreateViewModel(activityLogic);
+  public static ActivityCreateViewModel newInstance(ActivityLogic activityLogic,
+      CoroutineScope appScope) {
+    return new ActivityCreateViewModel(activityLogic, appScope);
   }
 }

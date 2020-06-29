@@ -2,26 +2,30 @@
 package com.ivan.androidultimateexample.ui.main.activity;
 
 import dagger.internal.Factory;
+import javax.inject.Provider;
+import kotlinx.coroutines.CoroutineScope;
 
 @SuppressWarnings({
     "unchecked",
     "rawtypes"
 })
 public final class MainViewModel_Factory implements Factory<MainViewModel> {
+  private final Provider<CoroutineScope> appScopeProvider;
+
+  public MainViewModel_Factory(Provider<CoroutineScope> appScopeProvider) {
+    this.appScopeProvider = appScopeProvider;
+  }
+
   @Override
   public MainViewModel get() {
-    return newInstance();
+    return newInstance(appScopeProvider.get());
   }
 
-  public static MainViewModel_Factory create() {
-    return InstanceHolder.INSTANCE;
+  public static MainViewModel_Factory create(Provider<CoroutineScope> appScopeProvider) {
+    return new MainViewModel_Factory(appScopeProvider);
   }
 
-  public static MainViewModel newInstance() {
-    return new MainViewModel();
-  }
-
-  private static final class InstanceHolder {
-    private static final MainViewModel_Factory INSTANCE = new MainViewModel_Factory();
+  public static MainViewModel newInstance(CoroutineScope appScope) {
+    return new MainViewModel(appScope);
   }
 }
