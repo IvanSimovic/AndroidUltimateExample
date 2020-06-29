@@ -20,7 +20,6 @@ class ActivityCreateViewModel
     fun createActivity() {
         runBackground {
             activity.value?.let {
-                delay(4000)
                 activityLogic.insertActivity(it)
                 navigationEvent.postValue(NavigationEvent.BACK)
             }
