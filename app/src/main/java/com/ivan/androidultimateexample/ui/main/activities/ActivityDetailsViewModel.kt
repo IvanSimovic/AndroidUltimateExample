@@ -7,13 +7,15 @@ import com.ivan.androidultimateexample.ui.util.SingleLiveEvent
 import com.ivan.androidultimateexample.ui.util.asSingleLiveEvent
 import com.ivan.todoengine.logic.activity.Activity
 import com.ivan.todoengine.logic.activity.ActivityLogic
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class ActivityDetailsViewModel
 @Inject constructor(
-    private val activityLogic: ActivityLogic
-) : BaseViewModel() {
+    private val activityLogic: ActivityLogic,
+    appScope: CoroutineScope
+) : BaseViewModel(appScope) {
 
     val activity = MutableLiveData<Activity>()
     val navigationEvent = SingleLiveEvent<Unit>()
@@ -23,10 +25,10 @@ class ActivityDetailsViewModel
     }
 
     fun deleteActivity() {
-        run {
+        runBackground {
             activity.value?.let {
                 activityLogic.deleteActivity(it.id)
-                navigationEvent.value = Unit
+                navigationEvent.postValue(Unit)
             }
         }
     }

@@ -6,6 +6,9 @@ import com.jakewharton.threetenabp.AndroidThreeTen
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import dagger.android.DispatchingAndroidInjector
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import javax.inject.Inject
 
 class App : DaggerApplication() {
@@ -13,6 +16,10 @@ class App : DaggerApplication() {
     override fun onCreate() {
         super.onCreate()
         AndroidThreeTen.init(this)
+    }
+
+    val appScope: CoroutineScope by lazy {
+        CoroutineScope(Dispatchers.Default + SupervisorJob(null))
     }
 
     @JvmField
